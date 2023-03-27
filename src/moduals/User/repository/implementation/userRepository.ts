@@ -54,16 +54,14 @@ class UserRepository implements IUserinterface {
     const user = await User.findOne({
       where:{email:email}
     })
-    
+
     const JWT_SCRECT_KEY1:any = process.env.JWT_SCRECT_KEY
     
     const token = jwt.sign({email,password},JWT_SCRECT_KEY1,{
       expiresIn:86400
     })
-    return {
-      userDetails: user,
-      token:token
-    }
+    user.dataValues.token = token
+    return user
   }
 
 

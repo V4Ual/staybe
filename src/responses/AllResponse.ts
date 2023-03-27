@@ -58,19 +58,19 @@ class AllResponse implements IResponce {
     });
   }
 
-  async success(ResponceMessage:any, ResponceData:any): Promise<any> {
-      return {
-        ResponceCode:0,
-        ResponceMessage: ResponceMessage,
-        ResponceData:ResponceData
-      }
+  async success(message: any, response_data: any): Promise<any> {
+    return {
+      "success": 0,
+      "message": message,
+      "response_data": response_data
+    }
   }
 
-  async fail(ResponceMessage:any, ResponceData:any): Promise<any> {
+  async fail(message: any, response_data: any): Promise<any> {
       return {
-        ResponceCode:1,
-        ResponceMessage: ResponceMessage,
-        ResponceData:ResponceData
+        "success": 1,
+        "message": message,
+        "response_data": response_data
       }
   }
 
